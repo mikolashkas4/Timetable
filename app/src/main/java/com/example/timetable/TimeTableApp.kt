@@ -1,7 +1,7 @@
 package com.example.timetable
 
 import android.app.Application
-import com.example.timetable.data.GetListBus
+import com.example.timetable.data.TimeTableApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -9,7 +9,7 @@ import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 public class TimeTableApp: Application() {
-    lateinit var getListBus: GetListBus;
+    lateinit var timeTableApi: TimeTableApi;
 
     override fun onCreate() {
         super.onCreate()
@@ -29,5 +29,7 @@ public class TimeTableApp: Application() {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
+
+        timeTableApi = retrofit.create(TimeTableApi::class.java);
     }
 }
