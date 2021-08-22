@@ -1,3 +1,3 @@
 package com.example.timetable.data
 
-data class BusListResponse (val Routes:List<Route>)
+data class BusListResponse (val Routes:ArrayList<Route>)

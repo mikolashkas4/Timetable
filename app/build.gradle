@@ -76,7 +76,7 @@ dependencies {
     def rxJava_verion = '3.1.0'
     def rxAndroid_version = '3.0.0'
     implementation "io.reactivex.rxjava3:rxjava:$rxJava_verion"
-    implementation "io.reactivex.rxjava3:rxjava:$rxAndroid_version"
+    implementation "io.reactivex.rxjava3:rxandroid:$rxAndroid_version"
 
     //dagger
     def dagger_version = '2.38.1'
