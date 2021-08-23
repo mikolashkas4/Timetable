@@ -25,10 +25,10 @@ public interface TimeTableApi {
     "Content-Type:application/x-www-form-urlencoded"
 )
 
-fun getList(@Field("p") country:String,
-            @Field("tt") transport:String,
-            @Field("__RequestVerificationToken") token:String
-): Single<BusListResponse>
+fun getTransportList(@Field("p") country:String,
+                     @Field("tt") transport:String,
+                     @Field("__RequestVerificationToken") token:String
+): Observable<BusListResponse>
 
 
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/busFragment">
+
+    <fragment
+        android:id="@+id/busFragment"
+        android:name="com.example.timetable.view.BusFragment"
+        android:label="fragment_bus_list"
+        tools:layout="@layout/bus_fragment" />
+    <fragment
+        android:id="@+id/tramFragment"
+        android:name="com.example.timetable.view.TramFragment"
+        android:label="tram_fragment"
+        tools:layout="@layout/tram_fragment" />
+    <fragment
+        android:id="@+id/trolleybusFragment"
+        android:name="com.example.timetable.view.TrolleybusFragment"
+        android:label="trolleybus_fragment"
+        tools:layout="@layout/trolleybus_fragment" />
+</navigation>

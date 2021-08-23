@@ -3,14 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.busList"
+    tools:context=".view.BusFragment"
     >
 
     <!-- TODO: Update blank fragment layout -->
-<TextView
-    android:id="@+id/outText"
-    android:text="dkasldkasndknlaknladsnk"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:textColor="@color/white"/>
+
+    <ListView
+        android:id="@+id/busFragment"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        />
+
+
+
 </FrameLayout>

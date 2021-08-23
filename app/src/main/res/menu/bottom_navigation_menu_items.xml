@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/busFragment"
+        android:icon="@drawable/ic_bus"
+        android:title="@string/busFragment"/>
+    <item
+        android:id="@+id/trolleybusFragment"
+        android:icon="@drawable/ic_trolleybus"
+        android:title="@string/TrolleybusFragment"/>
+    <item
+        android:id="@+id/tramFragment"
+        android:icon="@drawable/ic_tram"
+        android:title="@string/TramFragment"/>
+</menu>

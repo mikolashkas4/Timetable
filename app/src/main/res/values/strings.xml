@@ -2,4 +2,7 @@
     <string name="app_name">Timetable</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="busFragment">bus fragment</string>
+    <string name="TrolleybusFragment">Trolleybus fragment</string>
+    <string name="TramFragment">Tram fragment</string>
 </resources>
