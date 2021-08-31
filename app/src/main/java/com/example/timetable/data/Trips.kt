@@ -10,7 +10,7 @@ data class Trips (
     @SerializedName("StopsA")
     val busStopToTheFirstSide:List<CoordinatesBusStop>,
     @SerializedName("StopNamesA")
-    val nameBusStopToTheFirstSide:List<String>,
+    val nameBusStopToTheFirstSide:ArrayList<String>,
     @SerializedName("NameB")
     val nameRouteToTheSecondSide:String,
     @SerializedName("EndStopB")
@@ -18,7 +18,7 @@ data class Trips (
     @SerializedName("StopsB")
     val busStopToTheSecondSide:List<CoordinatesBusStop>,
     @SerializedName("StopNamesB")
-    val nameBusStopToTheSecondSide:List<String>,
+    val nameBusStopToTheSecondSide:ArrayList<String>,
     @SerializedName("Info")
     val information:String,
     @SerializedName("OtherDirections")

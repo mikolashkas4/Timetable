@@ -31,7 +31,7 @@ class BusViewModel(application: Application):AndroidViewModel(application) {
 
                         busData.value = it.Routes
 
-                        Log.e("TAG", it.Routes.toString())
+                        Log.e("BUS", it.Routes.toString())
 
                     },
                     {
@@ -40,30 +40,6 @@ class BusViewModel(application: Application):AndroidViewModel(application) {
                 )
             )
         }
-
-
-
-        timeTableApi?.let {
-            compositeDisposable.add(timeTableApi.getListBusStop(RequestsInfo.MINSK, RequestsInfo.BUS,"42",RequestsInfo.TOKEN)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(
-                    {
-                        it.Trips.otherDirections.forEach {
-                            Log.e("TAG",it.nameBusStop.toString()) }
-
-
-                    },
-                    {
-                        Log.e("TAG",it.message.toString())
-                    }
-                )
-            )
-        }
-
-
-
-
     }
 
 

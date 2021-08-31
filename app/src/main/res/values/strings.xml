@@ -5,4 +5,5 @@
     <string name="busFragment">bus fragment</string>
     <string name="TrolleybusFragment">Trolleybus fragment</string>
     <string name="TramFragment">Tram fragment</string>
+    <string name="toTheFirstSide">To the first side</string>
 </resources>

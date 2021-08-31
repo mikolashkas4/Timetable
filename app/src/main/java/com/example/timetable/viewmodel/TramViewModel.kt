@@ -32,7 +32,7 @@ class TramViewModel (application: Application):AndroidViewModel(application) {
 
                         tramData.value = it.Routes
 
-                        Log.e("TAG", it.Routes.toString())
+                        Log.e("TRAM", it.Routes.toString())
 
                     },
                     {

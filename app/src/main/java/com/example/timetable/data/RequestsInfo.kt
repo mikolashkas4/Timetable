@@ -1,7 +1,7 @@
 package com.example.timetable.data
 
-class RequestsInfo {
-    companion object{
+class RequestsInfo(val str:String) {
+        companion object{
         val MINSK = "minsk"
         val BUS = "bus"
         val TRAM = "tram"

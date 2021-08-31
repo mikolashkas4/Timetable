@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.ListView
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import com.example.timetable.R
 import com.example.timetable.TimeTableApp
+import com.example.timetable.data.RequestsInfo
 import com.example.timetable.data.Route
 import com.example.timetable.viewmodel.TramViewModel
 
@@ -34,7 +36,14 @@ class TramFragment : Fragment(R.layout.tram_fragment) {
 
 
             tramListListView.setOnItemClickListener(){ parent, view, position, id ->
-                Log.e("TAG",tramList.get(position).number)
+
+                var numberTram = tramList.get(position).number
+                var bundle:Bundle = Bundle()
+                bundle.putString("numberBus",numberTram )
+                bundle.putString("typeTransport", RequestsInfo.TRAM)
+
+                view.findNavController().navigate(R.id.tripsFragment, bundle)
+                Log.e("Click", numberTram)
             }
         }
 }

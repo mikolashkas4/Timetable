@@ -4,15 +4,14 @@ import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ListView
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import com.example.timetable.R
 import com.example.timetable.TimeTableApp
+import com.example.timetable.data.RequestsInfo
 import com.example.timetable.data.Route
-import com.example.timetable.viewmodel.TramViewModel
 import com.example.timetable.viewmodel.TrolleybusViewModel
 
 class TrolleybusFragment : Fragment(R.layout.trolleybus_fragment) {
@@ -36,7 +35,13 @@ class TrolleybusFragment : Fragment(R.layout.trolleybus_fragment) {
 
 
          trolleybusListListView.setOnItemClickListener(){ parent, view, position, id ->
-            Log.e("TAG",trolleybusList.get(position).number)
+             var numberTrolletBus = trolleybusList.get(position).number
+             var bundle:Bundle = Bundle()
+             bundle.putString("numberBus",numberTrolletBus )
+             bundle.putString("typeTransport", RequestsInfo.TROLLEYBUS)
+
+             view.findNavController().navigate(R.id.tripsFragment, bundle)
+             Log.e("Click", numberTrolletBus)
         }
     }
 

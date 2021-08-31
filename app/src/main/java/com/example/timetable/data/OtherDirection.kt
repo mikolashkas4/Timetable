@@ -10,7 +10,7 @@ data class OtherDirection (
     @SerializedName("Stops")
     val busStopCoordinates:List<CoordinatesBusStop>,
     @SerializedName("StopNames")
-    val nameBusStop:List<String>,
+    val nameBusStop:ArrayList<String>,
     @SerializedName("direction")
     val direction: Int,
     @SerializedName("directionStr")

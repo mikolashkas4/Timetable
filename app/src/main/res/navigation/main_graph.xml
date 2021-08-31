@@ -9,15 +9,32 @@
         android:id="@+id/busFragment"
         android:name="com.example.timetable.view.BusFragment"
         android:label="fragment_bus_list"
-        tools:layout="@layout/bus_fragment" />
+        tools:layout="@layout/bus_fragment" >
+        <action
+            android:id="@+id/action_busFragment_to_busRouteListFragment"
+            app:destination="@id/tripsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/tramFragment"
         android:name="com.example.timetable.view.TramFragment"
         android:label="tram_fragment"
-        tools:layout="@layout/tram_fragment" />
+        tools:layout="@layout/tram_fragment" >
+        <action
+            android:id="@+id/action_tramFragment_to_tripsFragment"
+            app:destination="@id/tripsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/trolleybusFragment"
         android:name="com.example.timetable.view.TrolleybusFragment"
         android:label="trolleybus_fragment"
-        tools:layout="@layout/trolleybus_fragment" />
+        tools:layout="@layout/trolleybus_fragment" >
+        <action
+            android:id="@+id/action_trolleybusFragment_to_tripsFragment"
+            app:destination="@id/tripsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tripsFragment"
+        android:name="com.example.timetable.view.TripsFragment"
+        android:label="bus_route_list_fragment"
+        tools:layout="@layout/trips_fragment" />
 </navigation>

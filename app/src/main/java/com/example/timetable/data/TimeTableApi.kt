@@ -51,6 +51,6 @@ fun getListBusStop(@Field("p") country:String,
                    @Field("tt") transport:String,
                    @Field("r") route:String,
                    @Field("__RequestVerificationToken") token:String
-): Single<RouteListResponce>
+): Observable<RouteListResponce>
 
 }
