@@ -36,5 +36,14 @@
         android:id="@+id/tripsFragment"
         android:name="com.example.timetable.view.TripsFragment"
         android:label="bus_route_list_fragment"
-        tools:layout="@layout/trips_fragment" />
+        tools:layout="@layout/trips_fragment" >
+        <action
+            android:id="@+id/action_tripsFragment_to_timeTableFragment"
+            app:destination="@id/timeTableFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/timeTableFragment"
+        android:name="com.example.timetable.view.TimeTableFragment"
+        android:label="time_table_fragment"
+        tools:layout="@layout/time_table_fragment" />
 </navigation>

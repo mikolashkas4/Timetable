@@ -1,48 +1,40 @@
 package com.example.timetable.viewmodel
 
-import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.timetable.data.RequestsInfo
-import com.example.timetable.data.transport.Route
 import com.example.timetable.data.TimeTableApi
+import com.example.timetable.data.timetable.TimeTableResponce
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-
-class BusViewModel(application: Application):AndroidViewModel(application) {
+class TimeTableViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
+    var timeTableMLD = MutableLiveData<TimeTableResponce>()
 
-    var busData = MutableLiveData<ArrayList<Route>>()
     override fun onCleared() {
         compositeDisposable.dispose()
         super.onCleared()
     }
 
-    fun fetchBusList(timeTableApi: TimeTableApi?) {
+
+    fun fetchTimeTable(timeTableApi: TimeTableApi?, typeTransport:String, nubmerTransport:String,idBusStop:String ) {
         timeTableApi?.let {
-            compositeDisposable.add(timeTableApi.getTransportList(RequestsInfo.MINSK, RequestsInfo.BUS, RequestsInfo.TOKEN)
+            compositeDisposable.add(timeTableApi.getTimeTable(RequestsInfo.MINSK, typeTransport, nubmerTransport, idBusStop, 1, RequestsInfo.TOKEN)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(
                     {
-
-                        busData.value = it.Routes
-
-                        Log.e("BUS", it.Routes.toString())
-
+                        timeTableMLD.value = it
+                        Log.e("TimeTable", it.toString())
                     },
                     {
-
+                        Log.e("ERRORTIMETABLE", it.message.toString())
                     }
                 )
             )
         }
     }
-
-
-
-
 }

@@ -11,7 +11,8 @@ import androidx.navigation.findNavController
 import com.example.timetable.R
 import com.example.timetable.TimeTableApp
 import com.example.timetable.data.RequestsInfo
-import com.example.timetable.data.Route
+import com.example.timetable.data.transport.Route
+import com.example.timetable.data.adapters.TransportListAdapter
 import com.example.timetable.viewmodel.TramViewModel
 
 class TramFragment : Fragment(R.layout.tram_fragment) {
@@ -21,7 +22,7 @@ class TramFragment : Fragment(R.layout.tram_fragment) {
             super.onViewCreated(view, savedInstanceState)
             val tramViewModel = ViewModelProvider(this).get(TramViewModel::class.java)
             val tramListListView: ListView = view.findViewById(R.id.tramList)
-            var TransportListAdapter:TransportListAdapter;
+            var TransportListAdapter: TransportListAdapter;
             var tramList:ArrayList<Route> = ArrayList<Route>()
 
 

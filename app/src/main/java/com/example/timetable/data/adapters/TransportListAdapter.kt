@@ -1,4 +1,4 @@
-package com.example.timetable.view
+package com.example.timetable.data.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.example.timetable.R
-import com.example.timetable.data.BusListResponse
-import com.example.timetable.data.Route
-import java.security.AccessControlContext
+import com.example.timetable.data.transport.Route
 
 class TransportListAdapter:ArrayAdapter<Route> {
     private var inflater:LayoutInflater

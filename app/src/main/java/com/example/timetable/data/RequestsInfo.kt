@@ -5,7 +5,7 @@ class RequestsInfo(val str:String) {
         val MINSK = "minsk"
         val BUS = "bus"
         val TRAM = "tram"
-        val TOKEN = "yW-O145tzkmaziDObHzx444HMadVXJLc-hZ_ktO4qyrRhgRyBqc4YPXjChWWPilWHAyLdtHhSVLdOeAsX-8fbf1XB7OjDuFJYvvlE7eCT2g1"
+        val TOKEN = "Jeg8F5AZfmlfxOeoprcMqQNlzNszQhcYqTBTQim0hy2OT2vgEw0d9se80mMOGellmkTt_57Lg1t0FKWlbubuRn6y5l9cUvXldpxmhg_sK6M1"
         val TROLLEYBUS = "trolleybus"
     }
 

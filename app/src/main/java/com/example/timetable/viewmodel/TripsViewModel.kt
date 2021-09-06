@@ -1,17 +1,14 @@
 package com.example.timetable.viewmodel
 
-import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.timetable.data.RequestsInfo
 import com.example.timetable.data.TimeTableApi
-import com.example.timetable.data.Trips
-import com.example.timetable.data.TripsExpandableListAdapter
+import com.example.timetable.data.trips.Trips
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import java.lang.reflect.Type
 
 class TripsViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()

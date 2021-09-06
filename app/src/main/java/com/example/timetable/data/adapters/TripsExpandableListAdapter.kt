@@ -1,4 +1,4 @@
-package com.example.timetable.data
+package com.example.timetable.data.adapters
 
 
 import android.content.Context
@@ -89,22 +89,13 @@ class TripsExpandableListAdapter : BaseExpandableListAdapter{
         convertView: View?,
         parent: ViewGroup?
     ): View? {
-        if (convertView == null)
-        {
-            var layoutInflater: LayoutInflater = LayoutInflater.from(context)
-            var view = layoutInflater.inflate(R.layout.bus_stops_expandable_item, null)
-            var busStopNames = getChild(groupPosition,childPosition)
-            var childTextView:TextView = view.findViewById(R.id.busStopsItem)
-            childTextView.text  = busStopNames.toString()
-            return view
-        }
-        else
-        {
-            var busStopNames = getChild(groupPosition,childPosition)
-            var childTextView:TextView = convertView.findViewById(R.id.busStopsItem)
-            childTextView.text  = busStopNames.toString()
-            return convertView
-        }
+        var layoutInflater: LayoutInflater = LayoutInflater.from(context)
+        var view:View = convertView?:layoutInflater.inflate(R.layout.bus_stops_expandable_item, null)
+        var busStopNames = getChild(groupPosition,childPosition)
+        var childTextView:TextView = view.findViewById(R.id.busStopsItem)
+        childTextView.text  = busStopNames.toString()
+
+        return view
 
 
 

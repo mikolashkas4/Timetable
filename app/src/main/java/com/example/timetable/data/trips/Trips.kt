@@ -1,4 +1,4 @@
-package com.example.timetable.data
+package com.example.timetable.data.trips
 
 import com.google.gson.annotations.SerializedName
 
@@ -8,7 +8,7 @@ data class Trips (
     @SerializedName("EndStopA")
     val endStopToTheFirstSide:String,
     @SerializedName("StopsA")
-    val busStopToTheFirstSide:List<CoordinatesBusStop>,
+    val busStopCoordinateToTheFirstSide:ArrayList<CoordinatesBusStop>,
     @SerializedName("StopNamesA")
     val nameBusStopToTheFirstSide:ArrayList<String>,
     @SerializedName("NameB")
@@ -16,7 +16,7 @@ data class Trips (
     @SerializedName("EndStopB")
     val endStopToTheSecondSide:String,
     @SerializedName("StopsB")
-    val busStopToTheSecondSide:List<CoordinatesBusStop>,
+    val busStopCoordinateToTheSecondSide:ArrayList<CoordinatesBusStop>,
     @SerializedName("StopNamesB")
     val nameBusStopToTheSecondSide:ArrayList<String>,
     @SerializedName("Info")

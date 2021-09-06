@@ -1,4 +1,4 @@
-package com.example.timetable.data
+package com.example.timetable.data.commons
 
 data class OperInfo (
     val IsSuccess:Boolean,

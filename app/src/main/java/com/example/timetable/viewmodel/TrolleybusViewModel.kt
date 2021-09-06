@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.timetable.data.RequestsInfo
-import com.example.timetable.data.Route
+import com.example.timetable.data.transport.Route
 import com.example.timetable.data.TimeTableApi
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
