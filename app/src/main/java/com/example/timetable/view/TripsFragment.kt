@@ -25,6 +25,7 @@ class TripsFragment : Fragment() {
     private lateinit var trips: Trips
     var coordinateMap = HashMap<String, ArrayList<CoordinatesBusStop>>()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -65,6 +66,23 @@ class TripsFragment : Fragment() {
             var busStopName =  parent.expandableListAdapter.getChild(groupPosition,childPosition)
             var idBusStop:String = coordinateMap.get(parent.expandableListAdapter.getGroup(groupPosition))?.get(childPosition)?.Id.toString()
             var bundle:Bundle = Bundle()
+            if (trips.otherDirections.isNotEmpty())
+            {
+                for (name in tripsNameList) {
+                    trips.otherDirections.forEach {
+                        if (it.nameRoute ==name)
+                        {
+                            bundle?.putString("d",it.direction.toString()+it.directionStr)
+                        }
+                        else
+                        {
+                            bundle?.putString("d", null)
+                        }
+                    }
+                }
+            }
+
+
             bundle.putString("numberTransport",numberBus)
             bundle.putString("typeTransport", typeTransport)
             bundle.putString("busStopName", busStopName.toString())
@@ -84,7 +102,7 @@ class TripsFragment : Fragment() {
         coordinateMap.put(it.nameRouteToTheSecondSide, it.busStopCoordinateToTheSecondSide)
         tripsMap.put(it.nameRouteToTheFirstSide, it.nameBusStopToTheFirstSide)
         tripsMap.put(it.nameRouteToTheSecondSide, it.nameBusStopToTheSecondSide)
-        tripsNameList.add(it.nameRouteToTheSecondSide)
+        tripsNameList.add(it.nameRouteToTheFirstSide)
         tripsNameList.add(it.nameRouteToTheSecondSide)
         it.otherDirections.forEach {
             coordinateMap.put(it.nameRoute, it.busStopCoordinates)

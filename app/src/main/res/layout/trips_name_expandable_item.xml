@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <TextView
-        android:paddingTop="20sp"
+        android:id="@+id/tripsNameItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:paddingTop="20sp"
         android:text="sdff"
-        android:id="@+id/tripsNameItem"
         android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_marginStart="25sp"
+        android:layout_marginEnd="10sp"
+        android:gravity="center_horizontal"
+
         />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

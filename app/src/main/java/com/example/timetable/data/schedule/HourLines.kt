@@ -1,4 +1,4 @@
-package com.example.timetable.data.timetable
+package com.example.timetable.data.schedule
 
 data class HourLines (
     var Hour:String,

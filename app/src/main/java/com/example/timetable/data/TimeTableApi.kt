@@ -1,10 +1,8 @@
 package com.example.timetable.data
 import com.example.timetable.data.transport.TransportListResponse
 import com.example.timetable.data.transport.RouteListResponce
-import com.example.timetable.data.timetable.TimeTableResponce
-import io.reactivex.rxjava3.core.Maybe
+import com.example.timetable.data.schedule.ScheduleResponce
 import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.*
 
@@ -74,6 +72,6 @@ fun getListBusStop(@Field("p") country:String,
                      @Field("s")idBusStop:String,
                      @Field("d")d:Int,
                      @Field("__RequestVerificationToken") token:String
-    ): Single<TimeTableResponce>
+    ): Single<ScheduleResponce>
 
 }

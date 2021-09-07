@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.timetable.R
-import com.example.timetable.data.timetable.HourLines
+import com.example.timetable.data.schedule.HourLines
 
-class TimeTableAdapter:RecyclerView.Adapter<TimeTableAdapter.ViewHolder> {
+class ScheduleAdapter:RecyclerView.Adapter<ScheduleAdapter.ViewHolder> {
     var layoutInflater:LayoutInflater
     var timesList:ArrayList<HourLines>
 
@@ -18,7 +18,7 @@ class TimeTableAdapter:RecyclerView.Adapter<TimeTableAdapter.ViewHolder> {
         this.timesList = timesList
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimeTableAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleAdapter.ViewHolder {
         var view = layoutInflater.inflate(R.layout.times_list_item, parent, false)
         return ViewHolder(view)
     }
@@ -29,17 +29,18 @@ class TimeTableAdapter:RecyclerView.Adapter<TimeTableAdapter.ViewHolder> {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            if (timesList!= null) {
+                var hour = timesList.get(position).Hour
+                var minutes = timesList.get(position).Minutes
+                var minutesArray = minutes.split(" ").toTypedArray()
+                var timeString: String = ""
+                minutesArray.forEach {
+                    timeString += hour + ":" + it + " "
 
-            var hour = timesList.get(position).Hour
-            var minutes = timesList.get(position).Minutes
-            var minutesArray = minutes.split(" ").toTypedArray()
-            var timeString:String = ""
-            minutesArray.forEach {
-                timeString+= hour + ":" + it+ " "
+                }
 
+                holder.timeTextView.text = timeString
             }
-
-        holder.timeTextView.text = timeString
     }
 
 

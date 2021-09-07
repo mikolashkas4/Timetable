@@ -1,6 +1,4 @@
-package com.example.timetable.data.timetable
-
-import com.example.timetable.data.timetable.HourLines
+package com.example.timetable.data.schedule
 
 data class Schedule (
     var DaysOfWeek:Int,
