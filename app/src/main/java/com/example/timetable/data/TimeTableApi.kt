@@ -70,7 +70,7 @@ fun getListBusStop(@Field("p") country:String,
                      @Field("tt")transport: String,
                      @Field("r")route:String,
                      @Field("s")idBusStop:String,
-                     @Field("d")d:Int,
+                     @Field("d")d:String,
                      @Field("__RequestVerificationToken") token:String
     ): Single<ScheduleResponce>
 

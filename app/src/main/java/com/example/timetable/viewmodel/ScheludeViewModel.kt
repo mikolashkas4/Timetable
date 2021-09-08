@@ -20,9 +20,9 @@ class ScheludeViewModel : ViewModel() {
     }
 
 
-    fun fetchSchelude(timeTableApi: TimeTableApi?, typeTransport:String, nubmerTransport:String, idBusStop:String ) {
+    fun fetchSchelude(timeTableApi: TimeTableApi?, typeTransport:String, nubmerTransport:String, idBusStop:String, direction:String) {
         timeTableApi?.let {
-            compositeDisposable.add(timeTableApi.getTimeTable(RequestsInfo.MINSK, typeTransport, nubmerTransport, idBusStop, 1, RequestsInfo.TOKEN)
+            compositeDisposable.add(timeTableApi.getTimeTable(RequestsInfo.MINSK, typeTransport, nubmerTransport, idBusStop, direction, RequestsInfo.TOKEN)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(

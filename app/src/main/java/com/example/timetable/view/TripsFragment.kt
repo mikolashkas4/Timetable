@@ -53,6 +53,7 @@ class TripsFragment : Fragment() {
         tripsViewModel.tripsMLD.observe(viewLifecycleOwner, Observer {
             tripsExpandableListAdapter = createDataFromAdapter(it, view);
             routesList.setAdapter(tripsExpandableListAdapter)
+            trips = it
         })
 
         tripsViewModel.fetchBusRouteList(
@@ -66,23 +67,17 @@ class TripsFragment : Fragment() {
             var busStopName =  parent.expandableListAdapter.getChild(groupPosition,childPosition)
             var idBusStop:String = coordinateMap.get(parent.expandableListAdapter.getGroup(groupPosition))?.get(childPosition)?.Id.toString()
             var bundle:Bundle = Bundle()
-            if (trips.otherDirections.isNotEmpty())
-            {
-                for (name in tripsNameList) {
-                    trips.otherDirections.forEach {
-                        if (it.nameRoute ==name)
-                        {
-                            bundle?.putString("d",it.direction.toString()+it.directionStr)
-                        }
-                        else
-                        {
-                            bundle?.putString("d", null)
-                        }
-                    }
+            trips.otherDirections.forEach {
+                if(it.nameRoute == parent.expandableListAdapter.getGroup(groupPosition))
+                {
+                    bundle.putString("d", it.direction.toString()+it.directionStr)
                 }
             }
-
-
+            when(parent.expandableListAdapter.getGroup(groupPosition))
+            {
+                trips.nameRouteToTheFirstSide->bundle.putString("d", "0")
+                trips.nameRouteToTheSecondSide->bundle.putString("d", "1")
+            }
             bundle.putString("numberTransport",numberBus)
             bundle.putString("typeTransport", typeTransport)
             bundle.putString("busStopName", busStopName.toString())
