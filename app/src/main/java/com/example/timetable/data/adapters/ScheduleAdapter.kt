@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.timetable.R
 import com.example.timetable.data.schedule.HourLines
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ScheduleAdapter:RecyclerView.Adapter<ScheduleAdapter.ViewHolder> {
     var layoutInflater:LayoutInflater

@@ -7,7 +7,8 @@
     <item
         android:id="@+id/trolleybusFragment"
         android:icon="@drawable/ic_trolleybus"
-        android:title="@string/TrolleybusFragment"/>
+        android:title="@string/TrolleybusFragment"
+        />
     <item
         android:id="@+id/tramFragment"
         android:icon="@drawable/ic_tram"

@@ -6,4 +6,12 @@
     <string name="TrolleybusFragment">Trolleybus fragment</string>
     <string name="TramFragment">Tram fragment</string>
     <string name="toTheFirstSide">To the first side</string>
+    <string name="Monday">Пн</string>
+    <string name="Tuesday">Вт</string>
+    <string name="thaturday">Ср</string>
+    <string name="Wednesday">Ср</string>
+    <string name="Thursday">Чт</string>
+    <string name="Friday">Пт</string>
+    <string name="Saturday">Сб</string>
+    <string name="Sunday">Вс</string>
 </resources>

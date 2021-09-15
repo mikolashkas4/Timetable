@@ -4,6 +4,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.ScheduleFragment">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<RadioGroup
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+
+    android:id="@+id/daysSwitcher">
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:text="@string/Monday"
+        android:textAlignment="center"
+        android:background="@drawable/days_radiobutton"
+        android:id="@+id/mondayRadiobutton"
+        />
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:text="@string/Tuesday"
+        android:textAlignment="center"
+        android:background="@drawable/days_radiobutton"
+        android:id="@+id/tuesdayRadiobutton" />
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:text="@string/Wednesday"
+        android:textAlignment="center"
+        android:background="@drawable/days_radiobutton"
+        android:id="@+id/wendesdayRadiobutton"/>
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:text="@string/Thursday"
+        android:textAlignment="center"
+        android:background="@drawable/days_radiobutton"
+        android:id="@+id/thursdayRadiobutton"/>
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:text="@string/Friday"
+        android:textAlignment="center"
+        android:background="@drawable/days_radiobutton"
+        android:id="@+id/fridayRadiobutton"/>
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:text="@string/Saturday"
+        android:textAlignment="center"
+        android:background="@drawable/days_radiobutton"
+        android:id="@+id/saturdayRadiobutton"/>
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:text="@string/Sunday"
+        android:textAlignment="center"
+        android:background="@drawable/days_radiobutton"
+        android:id="@+id/sundayRadiobutton"/>
+
+</RadioGroup>
 <androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,6 +85,6 @@
 
     />
 
-
+</LinearLayout>
 
 </FrameLayout>
