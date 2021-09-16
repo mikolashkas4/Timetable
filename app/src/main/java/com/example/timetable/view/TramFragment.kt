@@ -22,29 +22,27 @@ class TramFragment : Fragment(R.layout.tram_fragment) {
             super.onViewCreated(view, savedInstanceState)
             val tramViewModel = ViewModelProvider(this).get(TramViewModel::class.java)
             val tramListListView: ListView = view.findViewById(R.id.tramList)
-            var TransportListAdapter: TransportListAdapter;
             var tramList:ArrayList<Route> = ArrayList<Route>()
-
-
 
             tramViewModel.tramData.observe(viewLifecycleOwner, Observer {
                 tramList = it
                 tramListListView.adapter = TransportListAdapter(view.context, R.layout.transport_list_item, it)
-
             })
 
             tramViewModel.fetchTramList((activity?.application as? TimeTableApp)?.timeTableApi)
 
-
             tramListListView.setOnItemClickListener(){ parent, view, position, id ->
-
-                var numberTram = tramList.get(position).number
-                var bundle:Bundle = Bundle()
-                bundle.putString("numberBus",numberTram )
-                bundle.putString("typeTransport", RequestsInfo.TRAM)
-
-                view.findNavController().navigate(R.id.tripsFragment, bundle)
-                Log.e("Click", numberTram)
+                busListItemClick(tramList,position,view)
             }
         }
+
+    private fun busListItemClick(tramList: ArrayList<Route>, position: Int, view: View?) {
+        var numberTram = tramList.get(position).number
+        var bundle:Bundle = Bundle()
+        bundle.putString("numberBus",numberTram )
+        bundle.putString("typeTransport", RequestsInfo.TRAM)
+
+        view?.findNavController()?.navigate(R.id.tripsFragment, bundle)
+        Log.e("Click", numberTram)
+    }
 }

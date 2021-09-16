@@ -21,10 +21,7 @@ class TrolleybusFragment : Fragment(R.layout.trolleybus_fragment) {
         super.onViewCreated(view, savedInstanceState)
         val trolleybusViewModel = ViewModelProvider(this).get(TrolleybusViewModel::class.java)
         val trolleybusListListView: ListView = view.findViewById(R.id.trolleybusList)
-        var TransportListAdapter: TransportListAdapter;
         var trolleybusList:ArrayList<Route> = ArrayList<Route>()
-
-
 
         trolleybusViewModel.trolleybusData.observe(viewLifecycleOwner, Observer {
             trolleybusList = it
@@ -34,16 +31,19 @@ class TrolleybusFragment : Fragment(R.layout.trolleybus_fragment) {
 
         trolleybusViewModel.fetchTrolleybusList((activity?.application as? TimeTableApp)?.timeTableApi)
 
-
          trolleybusListListView.setOnItemClickListener(){ parent, view, position, id ->
-             var numberTrolletBus = trolleybusList.get(position).number
-             var bundle:Bundle = Bundle()
-             bundle.putString("numberBus",numberTrolletBus )
-             bundle.putString("typeTransport", RequestsInfo.TROLLEYBUS)
-
-             view.findNavController().navigate(R.id.tripsFragment, bundle)
-             Log.e("Click", numberTrolletBus)
+             trolleybusListItemClick(trolleybusList,position, view)
         }
+    }
+
+
+    private fun trolleybusListItemClick(trolleybusList: ArrayList<Route>, position: Int, view: View?) {
+        var numberTrolletBus = trolleybusList.get(position).number
+        var bundle:Bundle = Bundle()
+        bundle.putString("numberBus",numberTrolletBus )
+        bundle.putString("typeTransport", RequestsInfo.TROLLEYBUS)
+        view?.findNavController()?.navigate(R.id.tripsFragment, bundle)
+        Log.e("Click", numberTrolletBus)
     }
 
 }

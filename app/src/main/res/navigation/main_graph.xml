@@ -40,6 +40,7 @@
         <action
             android:id="@+id/action_tripsFragment_to_timeTableFragment"
             app:destination="@id/timeTableFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/timeTableFragment"

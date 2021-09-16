@@ -22,7 +22,7 @@ class TripsViewModel : ViewModel() {
         super.onCleared()
     }
 
-    fun fetchBusRouteList(timeTableApi: TimeTableApi?, numberBus:String, typeTransport:String){
+    fun fetchTripsRouteList(timeTableApi: TimeTableApi?, numberBus:String, typeTransport:String){
         timeTableApi?.let {
             compositeDisposable.add(timeTableApi.getListBusStop(
                 RequestsInfo.MINSK, typeTransport,numberBus,

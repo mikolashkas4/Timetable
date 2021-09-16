@@ -31,6 +31,7 @@ class TripsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.trips_fragment, container, false)
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -49,14 +50,13 @@ class TripsFragment : Fragment() {
         var routesList = view.findViewById<ExpandableListView>(R.id.routesList)
         var tripsExpandableListAdapter: TripsExpandableListAdapter
 
-
         tripsViewModel.tripsMLD.observe(viewLifecycleOwner, Observer {
             tripsExpandableListAdapter = createDataFromAdapter(it, view);
             routesList.setAdapter(tripsExpandableListAdapter)
             trips = it
         })
 
-        tripsViewModel.fetchBusRouteList(
+        tripsViewModel.fetchTripsRouteList(
             (activity?.application as? TimeTableApp)?.timeTableApi,
             numberBus.toString(),
             typeTransport.toString()
@@ -64,31 +64,33 @@ class TripsFragment : Fragment() {
 
 
         routesList.setOnChildClickListener(OnChildClickListener { parent, v, groupPosition, childPosition, id ->
-            var busStopName =  parent.expandableListAdapter.getChild(groupPosition,childPosition)
-            var idBusStop:String = coordinateMap.get(parent.expandableListAdapter.getGroup(groupPosition))?.get(childPosition)?.Id.toString()
-            var bundle:Bundle = Bundle()
-            trips.otherDirections.forEach {
-                if(it.nameRoute == parent.expandableListAdapter.getGroup(groupPosition))
-                {
-                    bundle.putString("d", it.direction.toString()+it.directionStr)
-                }
-            }
-            when(parent.expandableListAdapter.getGroup(groupPosition))
-            {
-                trips.nameRouteToTheFirstSide->bundle.putString("d", "0")
-                trips.nameRouteToTheSecondSide->bundle.putString("d", "1")
-            }
-            bundle.putString("numberTransport",numberBus)
-            bundle.putString("typeTransport", typeTransport)
-            bundle.putString("busStopName", busStopName.toString())
-            bundle.putString("idBusStop", idBusStop)
-            view.findNavController().navigate(R.id.timeTableFragment, bundle)
+            setTripsListChildClick(groupPosition,childPosition,view, parent, numberBus, typeTransport)
             false
         })
     }
 
 
-
+    private fun setTripsListChildClick(groupPosition: Int, childPosition: Int, view: View, parent: ExpandableListView?, numberBus: String?, typeTransport: String?) {
+        var busStopName =  parent?.expandableListAdapter?.getChild(groupPosition,childPosition)
+        var idBusStop:String = coordinateMap.get(parent?.expandableListAdapter?.getGroup(groupPosition))?.get(childPosition)?.Id.toString()
+        var bundle:Bundle = Bundle()
+        trips.otherDirections.forEach {
+            if(it.nameRoute == parent?.expandableListAdapter?.getGroup(groupPosition))
+            {
+                bundle.putString("d", it.direction.toString()+it.directionStr)
+            }
+        }
+        when(parent?.expandableListAdapter?.getGroup(groupPosition))
+        {
+            trips.nameRouteToTheFirstSide->bundle.putString("d", "0")
+            trips.nameRouteToTheSecondSide->bundle.putString("d", "1")
+        }
+        bundle.putString("numberTransport",numberBus)
+        bundle.putString("typeTransport", typeTransport)
+        bundle.putString("busStopName", busStopName.toString())
+        bundle.putString("idBusStop", idBusStop)
+        view.findNavController().navigate(R.id.timeTableFragment, bundle)
+    }
 
 
     private fun createDataFromAdapter(trips: Trips?, view:View) : TripsExpandableListAdapter {

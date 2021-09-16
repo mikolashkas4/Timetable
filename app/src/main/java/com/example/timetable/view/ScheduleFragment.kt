@@ -1,10 +1,14 @@
 package com.example.timetable.view
 
+import android.app.ActionBar
+import android.icu.text.CaseMap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
+import android.widget.Toolbar
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -30,7 +34,9 @@ class ScheduleFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return inflater.inflate(R.layout.schedule_fragment, container, false)
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -39,16 +45,12 @@ class ScheduleFragment : Fragment() {
         // TODO: Use the ViewModel
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         var emptyList = ArrayList<HourLines>()
-
-
         var weekdaysAdapter:ScheduleAdapter = ScheduleAdapter(emptyList,view.context)
         var weekendsAdapter:ScheduleAdapter = ScheduleAdapter(emptyList,view.context)
-
-
         var bundle = arguments
         var typeTransport = bundle?.getString("typeTransport")?:""
         var idBusStop = bundle?.getString("idBusStop")?:""
@@ -62,16 +64,13 @@ class ScheduleFragment : Fragment() {
 
 
         daysSwitcher.setOnCheckedChangeListener { group, checkedId ->
-
             daysSwitcherCheckedChange(group,checkedId, timeTableRecyclerView, recyclerViewManager, weekdaysAdapter, weekendsAdapter)
-
-
         }
 
         viewModel.timeTableMLD.observe(viewLifecycleOwner, Observer{
             it.DaysOfWeek?.let {
                 it.forEach {
-                    if(it.DaysOfWeek == 31)
+                    if(it.DaysOfWeek == 31||it.DaysOfWeek==30)
                     {
                         weekdaysAdapter = ScheduleAdapter(it.HourLines, view.context)
                     }
@@ -83,10 +82,10 @@ class ScheduleFragment : Fragment() {
             }
             setDayRadioButton(daysSwitcher)
         })
-
         viewModel.fetchSchelude((activity?.application as? TimeTableApp)?.timeTableApi,typeTransport,numberTransport,idBusStop,direction )
 
     }
+
 
     private fun daysSwitcherCheckedChange(group: RadioGroup?, checkedId: Int, timeTableRecyclerView: RecyclerView?, recyclerViewManager: LinearLayoutManager, weekdaysAdapter: ScheduleAdapter, weekendsAdapter: ScheduleAdapter) {
         when(checkedId)
@@ -144,5 +143,8 @@ class ScheduleFragment : Fragment() {
 
 
     }
+
+
+
 
 }
